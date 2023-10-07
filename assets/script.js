@@ -6,10 +6,15 @@ function generatePassword () {
 
 }
 
-var numOfCharacters = window.prompt("How many characters do you want your password to include?");
+window.prompt("How many characters do you want your password to include?");
 
-var conditions = window.prompt("OK to use special characters?" , "OK to use numbers?", "Okay to use lowercase letters?", "OK to use uppercase letters?");
+window.confirm("OK to use special characters?")
 
+window.confirm("OK to use numbers?")
+
+window.confirm("OK to use lowercase letters?")
+
+window.confirm("OK to use uppercase letters?")
 
 // Write password to the #password input
 function writePassword() {
