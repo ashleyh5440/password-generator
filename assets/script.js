@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 // define variables outside the function, have prompts inside since propmts are connected to button
 
  var upperCase = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
- var lowercase = Array.from("abcdefghijklmnopqrstuvwxyz")
+ var lowerCase = Array.from("abcdefghijklmnopqrstuvwxyz")
  var numbers = Array.from("012345679")
 //  needs to be a string
 var specialCharacters = Array.from("!@#$%^&*()")
@@ -21,8 +21,8 @@ var password = ""
 // parseInt makes string numbers into real numbers
 // Number.isNan checks if what is entered by the user is a number
 do {
-  var length = parseInt(window.prompt("Please enter a number between 8 and 20 for your password length."));
-} while (Number.isNaN(length) || length < 8 || length > 20) ;
+  var length = parseInt(window.prompt("Please enter a number between 8 and 128 for your password length."));
+} while (Number.isNaN(length) || length < 8 || length > 128) ;
   
    var hasUpperCase = window.confirm("OK to use uppercase?");
   
@@ -39,11 +39,12 @@ if (!hasUpperCase && !hasLowerCase && !hasNumbers && !hasSpecialCharacters) {
 }
 
 if (hasUpperCase) {
+  // concat combines the user's choice with the array
   userChosen = userChosen.concat(upperCase)
 }
 
 if (hasLowerCase) {
-  userChosen = userChosen.concat(lowercase)
+  userChosen = userChosen.concat(lowerCase)
 }
 
 if (hasNumbers) {
@@ -54,7 +55,7 @@ if (hasSpecialCharacters) {
   userChosen = userChosen.concat(specialCharacters)
 }
 
-// starts bring the conditions together
+// starts bringng the conditions together
 for (var i = 0; i < length; i ++) {
 
   // Math.random gives numbers 0 - 1 (not including 1), multiply by array length to get number over 1
