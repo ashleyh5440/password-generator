@@ -35,37 +35,54 @@ var generateBtn = document.querySelector("#generate");
 // define variables outside the function, have prompts inside since propmts are connected to button
 // create character sets (charSet) based on prompts
 
-var length;
-var upperCase;
-var lowerCase; 
-var numbers;
-var specialCharacters;
+
 var charSet
+
+ var upperCase = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+ var lowercase = Array.from("abcdefghijklmnopqrstuvwxyz")
+ var numbers = Array.from("012345679")
+//  needs to be a string
+var specialCharacters = Array.from("!@#$%^&*()")
+
 
 // had to define/create the function
 function generatePassword () {
+var userChosen = []
+  var length = window.prompt("Please enter a number between 8 and 20 for your password length.");
+  if (length < 8 || length > 20) {
+      window.prompt("Please enter a number between 8 and 20 for your password length.")
+  }
+  
+   var hasUpperCase = window.confirm("OK to use uppercase?");
+  
+  
+   var hasLowerCase = window.confirm("OK to use lowercase?");
+  
+  
+   var hasNumbers = window.confirm("OK to use numbers?");
+  
+  
+   var hasSpecialCharacters = window.confirm("OK to use special characters?")
+
+if (hasUpperCase) {
+  userChosen = userChosen.concat(upperCase)
+}
+if (hasLowerCase) {
+  userChosen = userChosen.concat(lowercase)
+}
+if (hasNumbers) {
+  userChosen = userChosen.concat(numbers)
+}
+if (hasSpecialCharacters) {
+  userChosen = userChosen.concat(specialCharacters)
+}
 }
 
 // Write password to the #password input, prompts go here
 function writePassword() {
-  // var password = generatePassword();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  length = window.prompt("Please enter a number between 8 and 20 for your password legnth.");
-// if ((length >= 8) || (length <= 20)) {
-
-// }
-
-  upperCase = window.confirm("OK to use uppercase?");
-
-
-  lowerCase = window.confirm("OK to use lowercase?");
-
-
-  numbers = window.confirm("OK to use numbers?");
-
-
-  specialCharacters = window.confirm("OK to use special characters?")
 
 
 
